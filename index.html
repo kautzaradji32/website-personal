@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Pijat ke Rumah</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right bottom, #f0f8ea, #a8dadc); /* Gradien lembut hijau ke biru */
+            color: #333;
+            min-height: 100vh; /* Memastikan background menutupi seluruh tinggi viewport */
+        }
+        header {
+            background-color: rgba(0, 123, 255, 0.8); /* Biru dengan sedikit transparansi */
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .welcome-message {
+            text-align: center;
+            color: #2e7d32; /* Hijau tua */
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        h1, h2 {
+            color: #2e7d32; /* Hijau tua */
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="tel"],
+        textarea {
+            width: calc(100% - 12px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #333;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .radio-item input[type="radio"] {
+            margin-right: 8px;
+        }
+        button[type="submit"] {
+            background-color: #0288d1; /* Biru */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button[type="submit"]:hover {
+            background-color: #01579b; /* Biru tua */
+        }
+        .whatsapp-section {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7fa; /* Biru muda */
+            color: #00897b; /* Hijau teal */
+            border: 1px solid #b2ebf2;
+            border-radius: 5px;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+        .whatsapp-icon {
+            font-size: 1.3em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Pijat Bekam Panongan</h1>
+        <h2>Buat Permintaan Pijat</h2>
+    <form>
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon:</label>
+                <input type="tel" id="telepon" name="telepon" required>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat Lengkap:</label>
+                <textarea id="alamat" name="alamat" rows="3" required></textarea>
+            </div>
+            <div class="radio-group">
+                <label>Jenis Layanan Pijat Bekam Panongan:</label>
+                <div class="radio-item">
+                    <input type="radio" id="tradisional" name="layanan" value="tradisional" checked>
+                    <label for="tradisional">Pijat Tradisional</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="refleksi" name="layanan" value="refleksi">
+                    <label for="refleksi">Pijat Refleksi</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="straching" name="layanan" value="straching">
+                    <label for="straching">Pijat straching</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="bekam" name="layanan" value="bekam">
+                    <label for="bekam">bekam</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="waktu">Waktu yang Diinginkan:</label>
+                <input type="text" id="waktu" name="waktu" placeholder="Contoh: Besok sore jam 16:00">
+            </div>
+            <button type="submit">Kirim Permintaan</button>
+        </form>
+
+        <section class="whatsapp-section">
+            <p>Atau, pesan langsung melalui WhatsApp:</p>
+            <a href="https://wa.me/6285881028025" class="whatsapp-button" target="_blank" id="whatsappLink">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> Chat via WhatsApp
+            </a>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappLink = document.getElementById('whatsappLink');
+            if (whatsappLink) {
+                whatsappLink.addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah tindakan default tautan
+                    
+                    const whatsappWebURL = "https://wa.me/6285881028025/"
+
+                    window.open(whatsappWebURL, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
